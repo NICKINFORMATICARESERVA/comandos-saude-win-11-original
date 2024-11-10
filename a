@@ -1,0 +1,33 @@
+chkdsk: O comando chkdsk verifica a integridade do sistema de arquivos e corrige erros lógicos no disco. Para usar este comando, você pode abrir o Prompt de Comando como Administrador e digitar:
+
+chkdsk C: /f /r
+Onde:
+
+C: é a letra da unidade que você deseja verificar.
+
+/f corrige erros no disco.
+
+/r localiza setores defeituosos e recupera informações legíveis.
+
+DISM (Deployment Imaging Service and Management Tool):
+
+CheckHealth: Para verificar a imagem do sistema em busca de corrupção, você pode usar:
+
+DISM /Online /Cleanup-Image /CheckHealth
+ScanHealth: Para fazer uma verificação mais profunda e registrar a corrupção (mas não repará-la):
+
+DISM /Online /Cleanup-Image /ScanHealth
+RestoreHealth: Para reparar a imagem do sistema:
+
+DISM /Online /Cleanup-Image /RestoreHealth
+Esses comandos são úteis para manter seu sistema saudável e funcionando sem problemas. Precisa de mais alguma coisa? 😊
+
+se algum programa malicioso moidificou registros do windwos esses comandos voltam ao que era original junto com sfc scannow
+Sim, esses comandos são bastante eficazes em ajudar a restaurar o Windows à sua condição original, especialmente quando são usados juntos.
+
+DISM /RestoreHealth: Este comando repara a imagem do sistema, corrigindo qualquer corrupção que possa ter ocorrido. É útil para reparar arquivos de sistema corrompidos.
+
+sfc /scannow: Depois de usar o DISM, o comando sfc /scannow pode ser executado para verificar todos os arquivos protegidos do sistema e substituir versões corrompidas por cópias corretas da pasta de cache localizada em %WinDir%\System32\dllcache. O comando é:
+
+sfc /scannow
+Em combinação, esses comandos ajudam a limpar e reparar a integridade do sistema, mesmo depois que programas maliciosos tenham causado danos. No entanto, é sempre uma boa prática manter backups regulares de seus arquivos e, se possível, ter um software antivírus atualizado para prevenir tais problemas.
